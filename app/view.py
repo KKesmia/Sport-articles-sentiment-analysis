@@ -1,6 +1,7 @@
 import sys
 #add path of the project folder on your laptop here 
-sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+#sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+sys.path.append('YOUR PATH')
 
 from app.tools import treattext
 from PyQt5.QtCore import  Qt
