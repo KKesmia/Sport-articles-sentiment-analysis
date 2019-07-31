@@ -5,7 +5,7 @@ sys.path.append('YOUR PATH')
 import numpy as np
 from keras import Sequential
 import keras.backend as K
-from keras.layers import Dense,  Embedding, LSTM, GRU,Dropout
+from keras.layers import Dense, Dropout
 from Dataset.tools import getDataset
 from variation import getVariations
 from keras import metrics
