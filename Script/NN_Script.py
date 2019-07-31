@@ -1,33 +1,27 @@
-
-'''
-AUCUNE MODIFICATION APPORTÉ SUR CE CODE
-AVANT D EXECUTER LE SCRIPT:
-	- SACHEZ QUE VOUZ ALLER PERDRE LE MEILLEUR MODEL QUI EXISTE DEJA SUR LE REPIRTOIRE.
-	- CHANGER LE PATH EN DESSOUS SELON VOTRE PATH SUR VOTRE MACHINE.
-	- LES VARIANCE EXISTENT SUR LE FICHIER VARIATION.PY.
-	- LE MODEL UTILISE SUR L APPLICATION SE TROUVE SUR LE ../rapport NON PAS SUR LE REPIRTOIRE SCRIPT. 
-'''
-
 import sys
 #add path of the project folder on your laptop here 
-sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+#sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+sys.path.append('YOUR PATH')
 import numpy as np
 from keras import Sequential
 import keras.backend as K
 from keras.layers import Dense,  Embedding, LSTM, GRU,Dropout
-from DATASETS.tools import getDataset
+from Dataset.tools import getDataset
 from variation import getVariations
 from keras import metrics
 import matplotlib.pyplot as plt
 #retrieve dataset
 x_train, x_test, y_train, y_test = getDataset('../Dataset/features.xlsx')
 
-#retrieve hyperparameter variation
+#retrieve architectures variation
 variation = getVariations()
 
 best_accuracy = -1
+
+#retrieve the shape of data
 n_input = x_train[0].shape
 
+#loop through the architectures
 for v in variation:
 	#initialzie the NN
 	model = Sequential()
@@ -46,11 +40,12 @@ for v in variation:
 	model.add(Dense(1, use_bias=True, 
 		kernel_initializer='RandomUniform', bias_initializer='zeros', activation=v[0]))
 
-	#compile and fit we use 5 epochs cause we have no time to run longer tests
+	#compile and fit we use 200 epochs cause we have no time to run longer tests
 	model.compile(optimizer=v[1] ,loss='mean_squared_error', metrics=['accuracy'])
 	history = model.fit(x_train, y_train, batch_size=100, epochs=200, verbose=2,validation_split= 0.5, validation_data = (x_test, y_test))
 	accuracy = model.evaluate(np.split(x_test,2)[1], np.split(y_test,2)[1], verbose = 0 )
 
+	#test the model results and save the best model generated
 	if (accuracy[1] > best_accuracy):
 		best_accuracy = accuracy[1]
 		best_model = model
@@ -58,12 +53,18 @@ for v in variation:
 		best_history = history
 
 print(accuracy)
-print('Accuracy: %.2f' % (best_accuracy*100))
+#print('Accuracy: %.2f' % (best_accuracy*100))
 
+#print the best architecture obtained
 print(K.eval(best_model.optimizer.lr))
-
 for i in best_varitaion:
 	print(i)
+
+	
+#print(best_history.history['acc'])
+#print(best_history.history['val_acc'])
+#print(best_history.history['loss'])
+#print(best_history.history['val_loss'])
 
 # Plot training & validation accuracy values
 plt.plot(best_history.history['acc'])
