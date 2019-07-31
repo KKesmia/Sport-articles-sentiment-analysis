@@ -1,12 +1,7 @@
-'''
-AUCUNE MODIFICATION APPORTÉ SUR CE CODE
-CE FICHIER EST NECESSAIRE POUR L EXECUTION DU SCRIPT IL GENERE LES DIFFERENTS ARCHITECTURES UTILISÉES.
-'''
-
-
 import sys
 #add path of the project folder on your laptop here 
-sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+#sys.path.append('C:/Users/Moi/Desktop/AARN_2')
+sys.path.append('YOUR PATH')
 from keras import optimizers
 
 '''
@@ -38,13 +33,7 @@ def getVariations():
 			for d in dr:
 				for h in hiden:
 					ret.append([a, o, d, h])
-	#print(len(ret))
 	return ret
 
 if __name__ == '__main__':
-	opt = list()
-	for l in lr:
-		opt.append(optimizers.Adam(lr= l))
-		opt.append(optimizers.Adamax(lr= l))
-		opt.append(optimizers.Nadam(lr= l))
-	print(opt[8].lr)
+	getVariations()
