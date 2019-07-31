@@ -1,0 +1,10 @@
+- _Init_.py is to be ignored.
+- tools :
+	contains function that gets the required attributes from the input of the user.
+	this text undergoes some treatement using NLTK library which returns same attributes as the ones our NN trained on
+	these attributes has to undergo Scaling process.
+	returns an np.array
+- view :
+	created by PyQt5 as simple as possible (Sorry for that).
+	2 buttons one for exit one for execution.
+	
