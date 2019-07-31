@@ -6,8 +6,8 @@ import numpy as np
 from keras import Sequential
 import keras.backend as K
 from keras import optimizers
-from keras.layers import Dense,  Embedding, LSTM, GRU,Dropout
-from DATASETS.tools import getDataset
+from keras.layers import Dense, Dropout
+from Dataset.tools import getDataset
 from keras.models import load_model
 import matplotlib.pyplot as plt
 
