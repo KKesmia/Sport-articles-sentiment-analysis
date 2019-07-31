@@ -1,5 +1,7 @@
 - _Init_.py is to be ignored.
 - tools :
 	contains function that gets the dataset after scaling and extracting the target from it.
-	cette fonction retour les données de train/ et de test(incluant les données de valiation) par portion de 0.3 pour la validation = 300 tuples.
-	cette valeur peut etre modifier au niveau du code.
+	this function returns data of train/test (that includes validation data) by portion of 0.3 meaning 300 tuples for test data 
+	this portion can modified.
+	In order to retrieve the full dataset with its text files please head to this website:
+	https://archive.ics.uci.edu/ml/datasets/Sports+articles+for+objectivity+analysis
