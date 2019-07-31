@@ -1,0 +1,9 @@
+- _Init_.py is to be ignored.
+- NN :
+	using KERAS framework, we use Dense layers followed by Dropout feature except for the output layer
+	plots are generated according to accuray and validation accuracy and loss and validation loss.
+	these values can be printed by de_commenting prints commands before the plot.
+ 	
+- model.h5 :
+	saved model format hierarchical format5
+	

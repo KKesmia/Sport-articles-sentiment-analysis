@@ -1,0 +1,5 @@
+- _Init_.py is to be ignored.
+- tools :
+	contains function that gets the dataset after scaling and extracting the target from it.
+	cette fonction retour les données de train/ et de test(incluant les données de valiation) par portion de 0.3 pour la validation = 300 tuples.
+	cette valeur peut etre modifier au niveau du code.

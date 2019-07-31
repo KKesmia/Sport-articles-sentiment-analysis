@@ -1,0 +1,8 @@
+- _Init_.py is to be ignored.
+- Variation :
+	permit to generate all possible architecture hyper paramaters for our neural network.
+	
+ 	
+- NN_Script :
+	we use same structure as we used in NN/NN.py
+	we save the best history best accuracy best model and display the same graphs (plots) as in NN.py.	
